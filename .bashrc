@@ -1,13 +1,9 @@
-#WINDOW_IN_CENTER
-/mnt/d/IARCPOM/BINARY/WINDOWS_BINARY/nircmd.exe win center title 'D:\IARCPOM\BINARY\WINDOWS_BINARY\nircmd.exe'
-
 #IARCPOM
 printf "\33[22mIIIIIII\e[4CA\e[4CRRRRRR\e[3CCCCCC\e[2CPPPPPP\e[3COOOOO\e[2CM\e[5CM\n\e[3CI\e[6CA\e[1CA\e[3CR\e[5CR\e[1CC\e[5CC\e[1CP\e[5CP\e[1CO\e[5CO\e[1CMM\e[3CMM\n\e[3CI\e[5CA\e[3CA\e[2CR\e[5CR\e[1CC\e[7CP\e[5CP\e[1CO\e[5CO\e[1CM\e[1CM\e[1CM\e[1CM\n\e[3CI\e[4CA\e[5CA\e[1CRRRRRR\e[2CC\e[7CPPPPPP\e[2CO\e[5CO\e[1CM\e[2CM\e[2CM\n\e[3CI\e[4CAAAAAAA\e[1CR\e[3CR\e[3CC\e[7CP\e[7CO\e[5CO\e[1CM\e[5CM\n\e[3CI\e[4CA\e[5CA\e[1CR\e[4CR\e[2CC\e[5CC\e[1CP\e[7CO\e[5CO\e[1CM\e[5CM\nIIIIIII\e[1CA\e[5CA\e[1CR\e[5CR\e[2CCCCCC\e[2CP\e[8COOOOO\e[2CM\e[5CM\033[0m\n"
 
 #HISTORY
 HISTSIZE=1000
 HISTFILESIZE=0
-HISTFILE="/home/iarcpom/.bash_history"
 
 #ALIAS
 alias ls="ls --color=auto -alSGgh"
@@ -34,10 +30,10 @@ extract () {
 			*.Z)         uncompress $1    ;;
 			*.7z)        7z x $1    ;;
 			*.ace)       unace x $1    ;;
-			*)           echo "'$1' cannot be extracted via extract()"   ;;
+			*)           printf "%s\n" "Cannot Extract"   ;;
 		esac
 	else
-		echo "'$1' is not a valid file"
+		printf "%s\n" "Invalid File"
 	fi
 }
 
@@ -47,6 +43,3 @@ PS2="$> "
 
 #PATH
 export PATH=$PATH:/mnt/d/IARCPOM/BINARY:/mnt/d/IARCPOM/BINARY/WINDOWS_BINARY/UnxUtils/BINARY
-
-#START_FROM_D_DRIVE
-cd /mnt/d
